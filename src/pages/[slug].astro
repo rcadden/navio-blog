@@ -21,9 +21,11 @@ const formattedDate = publishDate.toLocaleDateString('en-US', {
   year: 'numeric', month: 'long', day: 'numeric',
 });
 
+const utm = 'utm_source=navio-blog&utm_medium=content';
+
 const plannerUrl = routeId
-  ? `https://mynavio.com/share/${routeId}`
-  : `https://mynavio.com/planner?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`;
+  ? `https://mynavio.com/share/${routeId}?${utm}`
+  : `https://mynavio.com/planner?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&${utm}`;
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
