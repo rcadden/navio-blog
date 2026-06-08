@@ -1,0 +1,70 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title,
+  description = 'Navio road trip guides — smarter routes, better stops.',
+  image = 'https://mynavio.com/navio_og_image.jpg',
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Navio</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | Navio`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Navio`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body class="bg-white text-gray-900 antialiased">
+    <header class="sticky top-0 z-10 bg-white/90 backdrop-blur-sm border-b border-gray-100 px-6 py-4">
+      <div class="max-w-4xl mx-auto flex items-center justify-between">
+        <a href="https://mynavio.com" class="flex items-center gap-2.5 no-underline">
+          <span class="font-display font-extrabold text-xl tracking-widest uppercase text-primary">NAVIO</span>
+        </a>
+        <nav class="flex items-center gap-5">
+          <a href={`${import.meta.env.BASE_URL}/`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Road Trips</a>
+          <a
+            href="https://mynavio.com/planner"
+            class="text-sm font-medium text-white bg-primary px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+          >
+            Plan a Route
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="border-t border-gray-100 px-6 py-10 mt-20">
+      <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+        <span>© {new Date().getFullYear()} Applied Flux, LLC. All rights reserved.</span>
+        <div class="flex gap-5">
+          <a href="https://mynavio.com/privacy" class="hover:text-gray-700 transition-colors">Privacy</a>
+          <a href="https://mynavio.com/terms" class="hover:text-gray-700 transition-colors">Terms</a>
+          <a href="https://mynavio.com/pricing" class="hover:text-gray-700 transition-colors">Pro</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

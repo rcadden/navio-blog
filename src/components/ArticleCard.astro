@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  publishDate: Date;
+  heroImage?: string;
+  origin: string;
+  destination: string;
+  tags?: string[];
+}
+
+const { title, description, slug, publishDate, heroImage, origin, destination, tags = [] } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const formattedDate = publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<article class="group border border-gray-100 rounded-xl overflow-hidden hover:border-gray-200 hover:shadow-md transition-all duration-200">
+  {heroImage && (
+    <a href={`${base}/${slug}/`} class="block aspect-[16/9] overflow-hidden bg-gray-50">
+      <img
+        src={heroImage}
+        alt={title}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        loading="lazy"
+      />
+    </a>
+  )}
+  <div class="p-6">
+    <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
+      <span>{origin}</span>
+      <span class="text-primary">→</span>
+      <span>{destination}</span>
+      <span class="ml-auto">{formattedDate}</span>
+    </div>
+    <h2 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+      <a href={`${base}/${slug}/`}>{title}</a>
+    </h2>
+    <p class="text-gray-600 text-sm leading-relaxed line-clamp-2">{description}</p>
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-1.5 mt-4">
+        {tags.map(tag => (
+          <span class="text-xs px-2 py-0.5 rounded-full bg-gray-50 text-gray-500 border border-gray-100">{tag}</span>
+        ))}
+      </div>
+    )}
+  </div>
+</article>

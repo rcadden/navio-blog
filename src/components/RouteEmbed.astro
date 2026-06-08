@@ -1,0 +1,43 @@
+---
+interface Props {
+  routeId: string;
+  origin: string;
+  destination: string;
+  estimatedDriveTime?: string;
+  distanceMiles?: number;
+}
+
+const { routeId, origin, destination, estimatedDriveTime, distanceMiles } = Astro.props;
+const shareUrl = `https://mynavio.com/share/${routeId}`;
+---
+
+<div class="my-8 rounded-xl border border-primary/20 bg-[radial-gradient(circle_at_top_left,rgba(38,92,75,0.04),transparent_60%)] p-6">
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <p class="text-xs font-medium text-primary uppercase tracking-wider mb-2">Navio Route</p>
+      <div class="flex items-center gap-2 text-lg font-bold text-gray-900">
+        <span>{origin}</span>
+        <span class="text-primary">→</span>
+        <span>{destination}</span>
+      </div>
+      {(estimatedDriveTime || distanceMiles) && (
+        <div class="flex items-center gap-3 mt-1.5 text-sm text-gray-500">
+          {estimatedDriveTime && <span>⏱ {estimatedDriveTime}</span>}
+          {distanceMiles && <span>📍 {distanceMiles} miles</span>}
+        </div>
+      )}
+    </div>
+    <a
+      href={shareUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="shrink-0 text-sm font-medium text-white bg-primary px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors whitespace-nowrap"
+    >
+      Open Route →
+    </a>
+  </div>
+  <div class="mt-4 pt-4 border-t border-primary/10 flex items-center justify-between">
+    <p class="text-xs text-gray-400">Powered by Navio — vehicle-aware routing</p>
+    <a href="https://mynavio.com/planner" class="text-xs text-primary hover:underline">Plan your own route →</a>
+  </div>
+</div>
