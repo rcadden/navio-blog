@@ -21,29 +21,21 @@ const {
     <title>{title} | Navio</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-
-    <!-- Open Graph -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={`${title} | Navio`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | Navio`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
-
     <link rel="icon" href="https://mynavio.com/favicon.ico" />
   </head>
   <body class="bg-white text-gray-900 antialiased min-h-screen flex flex-col">
 
-    <!-- Header: matches main Navio site -->
     <header class="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-gray-100 px-4 sm:px-6 py-3">
       <div class="max-w-4xl mx-auto flex items-center justify-between h-10">
-
-        <!-- Logo + wordmark -->
         <a href="https://mynavio.com" class="flex flex-row items-center gap-2.5 no-underline">
           <img
             src="https://mynavio.com/logo-exports%20(2)/transparent/logo-256x256-transparent.png"
@@ -54,21 +46,12 @@ const {
           />
           <span class="font-display font-extrabold text-xl tracking-widest uppercase text-gray-900">NAVIO</span>
         </a>
-
-        <!-- Nav -->
         <nav class="flex items-center gap-4 sm:gap-5">
-          <a
-            href={`${import.meta.env.BASE_URL}/`}
-            class="text-sm text-gray-600 hover:text-gray-900 transition-colors hidden sm:block"
-          >
-            Road Trips
-          </a>
+          <a href="/blog/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors hidden sm:block">Road Trips</a>
           <a
             href="https://mynavio.com/planner"
             class="text-sm font-semibold text-white bg-primary px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
-          >
-            Plan a Route
-          </a>
+          >Plan a Route</a>
         </nav>
       </div>
     </header>
@@ -77,7 +60,6 @@ const {
       <slot />
     </main>
 
-    <!-- Footer: matches main Navio site -->
     <footer class="border-t border-gray-100 px-6 py-10 mt-auto">
       <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
         <div class="flex items-center gap-2.5">

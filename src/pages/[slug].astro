@@ -28,20 +28,15 @@ const plannerUrl = routeId
 
 <BaseLayout title={title} description={description} image={heroImage}>
 
-  <!-- Hero -->
   <div class="bg-[radial-gradient(circle_at_top_center,rgba(38,92,75,0.07),transparent_60%),radial-gradient(circle_at_bottom_right,rgba(230,167,94,0.06),transparent_50%)] border-b border-gray-100">
     <div class="max-w-3xl mx-auto px-6 py-14">
-
       <div class="flex items-center gap-2 text-sm text-gray-400 mb-5">
-        <a href={`${import.meta.env.BASE_URL}/`} class="hover:text-primary transition-colors">Road Trips</a>
+        <a href="/blog/" class="hover:text-primary transition-colors">Road Trips</a>
         <span>›</span>
         <span class="text-gray-500">{origin} → {destination}</span>
       </div>
-
       <h1 class="font-display text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-5">{title}</h1>
       <p class="text-xl text-gray-500 leading-relaxed mb-8 max-w-2xl">{description}</p>
-
-      <!-- Route strip -->
       <div class="inline-flex flex-wrap items-center gap-x-4 gap-y-2 bg-white border border-gray-200 rounded-xl px-5 py-3 shadow-sm text-sm">
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
@@ -70,16 +65,9 @@ const plannerUrl = routeId
   </div>
 
   <article class="max-w-3xl mx-auto px-6 py-12">
-
     {heroImage && (
-      <img
-        src={heroImage}
-        alt={title}
-        class="w-full aspect-[16/9] object-cover rounded-xl mb-10 shadow-sm"
-      />
+      <img src={heroImage} alt={title} class="w-full aspect-[16/9] object-cover rounded-xl mb-10 shadow-sm" />
     )}
-
-    <!-- Meta row -->
     <div class="flex flex-wrap items-center gap-3 mb-10 pb-8 border-b border-gray-100">
       <time datetime={publishDate.toISOString()} class="text-sm text-gray-400">{formattedDate}</time>
       {tags.length > 0 && (
@@ -90,8 +78,6 @@ const plannerUrl = routeId
         </div>
       )}
     </div>
-
-    <!-- Body -->
     <div class="prose prose-gray prose-lg max-w-none
       prose-headings:font-display prose-headings:font-bold prose-headings:text-gray-900
       prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
@@ -102,8 +88,6 @@ const plannerUrl = routeId
       prose-li:my-1 prose-li:text-gray-600">
       <Content />
     </div>
-
-    <!-- CTA -->
     <div class="mt-16 p-8 rounded-2xl border border-primary/15 bg-[radial-gradient(circle_at_top_left,rgba(38,92,75,0.05),transparent_60%)]">
       <p class="font-display font-bold text-2xl text-gray-900 mb-2">Ready to hit the road?</p>
       <p class="text-gray-500 mb-6 max-w-md leading-relaxed">
@@ -119,13 +103,12 @@ const plannerUrl = routeId
           {routeId ? 'Open Route in Navio' : 'Plan This Route in Navio'} →
         </a>
         <a
-          href={`${import.meta.env.BASE_URL}/`}
+          href="/blog/"
           class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 bg-white border border-gray-200 px-6 py-3 rounded-xl hover:border-gray-300 transition-colors"
         >
           More Road Trips
         </a>
       </div>
     </div>
-
   </article>
 </BaseLayout>
