@@ -7,42 +7,66 @@ interface Props {
   heroImage?: string;
   origin: string;
   destination: string;
-  tags?: string[];
+  estimatedDriveTime?: string;
+  distanceMiles?: number;
+  tags: string[];
 }
 
-const { title, description, slug, publishDate, heroImage, origin, destination, tags = [] } = Astro.props;
-const base = import.meta.env.BASE_URL;
-const formattedDate = publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const {
+  title, description, slug, publishDate,
+  heroImage, origin, destination,
+  estimatedDriveTime, distanceMiles, tags,
+} = Astro.props;
+
+const url = `${import.meta.env.BASE_URL}/${slug}`;
+const formattedDate = publishDate.toLocaleDateString('en-US', {
+  year: 'numeric', month: 'short', day: 'numeric',
+});
 ---
 
-<article class="group border border-gray-100 rounded-xl overflow-hidden hover:border-gray-200 hover:shadow-md transition-all duration-200">
-  {heroImage && (
-    <a href={`${base}/${slug}/`} class="block aspect-[16/9] overflow-hidden bg-gray-50">
-      <img
-        src={heroImage}
-        alt={title}
-        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        loading="lazy"
-      />
-    </a>
-  )}
-  <div class="p-6">
-    <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
-      <span>{origin}</span>
-      <span class="text-primary">→</span>
-      <span>{destination}</span>
-      <span class="ml-auto">{formattedDate}</span>
+<a href={url} class="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-md transition-all duration-200 no-underline">
+
+  {heroImage ? (
+    <img src={heroImage} alt={title} class="w-full aspect-[16/9] object-cover" />
+  ) : (
+    <div class="w-full aspect-[16/9] bg-[radial-gradient(circle_at_top_left,rgba(38,92,75,0.08),transparent_60%),radial-gradient(circle_at_bottom_right,rgba(230,167,94,0.07),transparent_50%)] flex items-center justify-center">
+      <div class="flex items-center gap-3 text-sm font-medium text-gray-500 px-6 text-center">
+        <span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
+        <span>{origin}</span>
+        <span class="text-gray-300">→</span>
+        <span>{destination}</span>
+        <span class="w-2 h-2 rounded-full bg-sunset flex-shrink-0"></span>
+      </div>
     </div>
-    <h2 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
-      <a href={`${base}/${slug}/`}>{title}</a>
-    </h2>
-    <p class="text-gray-600 text-sm leading-relaxed line-clamp-2">{description}</p>
+  )}
+
+  <div class="flex flex-col flex-1 p-5">
+    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+      <time datetime={publishDate.toISOString()}>{formattedDate}</time>
+      {estimatedDriveTime && (
+        <>
+          <span class="text-gray-200">·</span>
+          <span>{estimatedDriveTime}</span>
+        </>
+      )}
+      {distanceMiles && (
+        <>
+          <span class="text-gray-200">·</span>
+          <span>{distanceMiles} mi</span>
+        </>
+      )}
+    </div>
+
+    <h2 class="font-display font-bold text-gray-900 text-lg leading-snug mb-2 group-hover:text-primary transition-colors">{title}</h2>
+    <p class="text-sm text-gray-500 leading-relaxed flex-1 line-clamp-3">{description}</p>
+
     {tags.length > 0 && (
       <div class="flex flex-wrap gap-1.5 mt-4">
-        {tags.map(tag => (
-          <span class="text-xs px-2 py-0.5 rounded-full bg-gray-50 text-gray-500 border border-gray-100">{tag}</span>
+        {tags.slice(0, 3).map(tag => (
+          <span class="px-2 py-0.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs">{tag}</span>
         ))}
       </div>
     )}
   </div>
-</article>
+
+</a>

@@ -11,17 +11,24 @@ const posts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publ
   title="Road Trip Guides"
   description="Curated US road trip guides with optimized routes, stop suggestions, and one-tap navigation via Navio."
 >
-  <div class="max-w-4xl mx-auto px-6 py-12">
-    <div class="mb-12">
-      <p class="text-sm font-medium text-primary uppercase tracking-wider mb-3">Navio Road Trips</p>
-      <h1 class="text-4xl font-bold text-gray-900 mb-3">Road Trip Guides</h1>
-      <p class="text-lg text-gray-500 max-w-2xl">
-        Curated routes across the US — complete with stops, timing, and a live Navio route you can open with one tap.
+
+  <!-- Header -->
+  <div class="bg-[radial-gradient(circle_at_top_center,rgba(38,92,75,0.07),transparent_60%)] border-b border-gray-100">
+    <div class="max-w-4xl mx-auto px-6 py-14">
+      <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-3">Navio Road Trips</p>
+      <h1 class="font-display text-4xl font-bold text-gray-900 mb-4">Road Trip Guides</h1>
+      <p class="text-lg text-gray-500 max-w-2xl leading-relaxed">
+        Curated routes across the US — complete with recommended stops, drive times, and a live Navio route you can open with one tap.
       </p>
     </div>
+  </div>
 
+  <div class="max-w-4xl mx-auto px-6 py-12">
     {posts.length === 0 ? (
-      <p class="text-gray-400 text-center py-24">First guides coming soon.</p>
+      <div class="text-center py-24">
+        <p class="text-gray-400 text-lg mb-2">First guides coming soon.</p>
+        <p class="text-sm text-gray-400">Check back next week.</p>
+      </div>
     ) : (
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {posts.map(post => (
@@ -33,10 +40,13 @@ const posts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publ
             heroImage={post.data.heroImage}
             origin={post.data.origin}
             destination={post.data.destination}
+            estimatedDriveTime={post.data.estimatedDriveTime}
+            distanceMiles={post.data.distanceMiles}
             tags={post.data.tags}
           />
         ))}
       </div>
     )}
   </div>
+
 </BaseLayout>
