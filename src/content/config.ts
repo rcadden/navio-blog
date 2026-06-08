@@ -12,6 +12,10 @@ const trips = defineCollection({
     destination: z.string(),
     estimatedDriveTime: z.string().optional(),
     distanceMiles: z.number().optional(),
+    stops: z.array(z.object({
+      name: z.string(),
+      location: z.string().optional(),
+    })).optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),

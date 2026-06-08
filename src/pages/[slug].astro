@@ -14,7 +14,7 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 const {
   title, description, publishDate, heroImage,
-  routeId, origin, destination, estimatedDriveTime, distanceMiles, tags,
+  routeId, origin, destination, estimatedDriveTime, distanceMiles, tags, stops,
 } = post.data;
 
 const formattedDate = publishDate.toLocaleDateString('en-US', {
@@ -24,6 +24,10 @@ const formattedDate = publishDate.toLocaleDateString('en-US', {
 const plannerUrl = routeId
   ? `https://mynavio.com/share/${routeId}`
   : `https://mynavio.com/planner?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`;
+
+const googleMapsUrl = stops && stops.length > 0
+  ? `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&waypoints=${stops.map((s: { name: string; location?: string }) => encodeURIComponent(s.location || s.name)).join('|')}`
+  : `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`;
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
@@ -37,7 +41,12 @@ const plannerUrl = routeId
       </div>
       <h1 class="font-display text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-5">{title}</h1>
       <p class="text-xl text-gray-500 leading-relaxed mb-8 max-w-2xl">{description}</p>
-      <div class="inline-flex flex-wrap items-center gap-x-4 gap-y-2 bg-white border border-gray-200 rounded-xl px-5 py-3 shadow-sm text-sm">
+      <a
+        href={plannerUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex flex-wrap items-center gap-x-4 gap-y-2 bg-white border border-gray-200 rounded-xl px-5 py-3 shadow-sm text-sm hover:border-primary/40 hover:shadow-md transition-all"
+      >
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
           <span class="font-medium text-gray-800">{origin}</span>
@@ -60,7 +69,8 @@ const plannerUrl = routeId
             <span class="text-gray-500">{distanceMiles} mi</span>
           </>
         )}
-      </div>
+        <span class="text-primary text-xs font-medium ml-1">Open in Navio →</span>
+      </a>
     </div>
   </div>
 
@@ -103,10 +113,12 @@ const plannerUrl = routeId
           {routeId ? 'Open Route in Navio' : 'Plan This Route in Navio'} →
         </a>
         <a
-          href="/blog/"
+          href={googleMapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 bg-white border border-gray-200 px-6 py-3 rounded-xl hover:border-gray-300 transition-colors"
         >
-          More Road Trips
+          View on Google Maps
         </a>
       </div>
     </div>
