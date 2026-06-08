@@ -14,7 +14,7 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 const {
   title, description, publishDate, heroImage,
-  routeId, origin, destination, estimatedDriveTime, distanceMiles, tags, stops,
+  routeId, origin, destination, estimatedDriveTime, distanceMiles, tags,
 } = post.data;
 
 const formattedDate = publishDate.toLocaleDateString('en-US', {
@@ -24,10 +24,6 @@ const formattedDate = publishDate.toLocaleDateString('en-US', {
 const plannerUrl = routeId
   ? `https://mynavio.com/share/${routeId}`
   : `https://mynavio.com/planner?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`;
-
-const googleMapsUrl = stops && stops.length > 0
-  ? `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&waypoints=${stops.map((s: { name: string; location?: string }) => encodeURIComponent(s.location || s.name)).join('|')}`
-  : `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`;
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
@@ -113,12 +109,10 @@ const googleMapsUrl = stops && stops.length > 0
           {routeId ? 'Open Route in Navio' : 'Plan This Route in Navio'} →
         </a>
         <a
-          href={googleMapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/blog/"
           class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 bg-white border border-gray-200 px-6 py-3 rounded-xl hover:border-gray-300 transition-colors"
         >
-          View on Google Maps
+          More Road Trips
         </a>
       </div>
     </div>
