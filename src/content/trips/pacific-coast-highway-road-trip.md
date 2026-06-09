@@ -3,6 +3,7 @@ title: "The Ultimate Pacific Coast Highway Road Trip: June 2026"
 slug: "pacific-coast-highway-road-trip"
 description: "Experience the ultimate June road trip along the Pacific Coast Highway. Discover scenic stops, coastal views, and travel tips for your 2026 California drive."
 publishDate: 2026-06-09
+heroImage: "https://mynavio.com/api/og/map?origin=San%20Francisco%2C%20CA&destination=Los%20Angeles%2C%20CA&stops=%5B%22Monterey%2C%20CA%22%2C%22Big%20Sur%2C%20CA%22%2C%22San%20Simeon%2C%20CA%22%2C%22Santa%20Barbara%2C%20CA%22%5D"
 origin: "San Francisco, CA"
 destination: "Los Angeles, CA"
 estimatedDriveTime: "9 hours"
@@ -26,15 +27,15 @@ As we hit mid-June 2026, the coastal fog that often plagues the California coast
 
 ## Monterey & Carmel-by-the-Sea
 
-Start your journey in San Francisco and head south to Monterey. In June, the marine life is incredibly active. Spend your morning at the Monterey Bay Aquarium before taking the iconic 17-Mile Drive. Just down the road, Carmel-by-the-Sea offers a fairytale atmosphere. Walk the white sands of Carmel Beach and enjoy a glass of local Monterey County wine at a dog-friendly bistro. It’s the perfect, relaxed start to your coastal adventure.
+Start your journey in San Francisco and head south to Monterey. In June, the marine life is incredibly active. Spend your morning at the Monterey Bay Aquarium before taking the iconic 17-Mile Drive. Just down the road, Carmel-by-the-Sea offers a fairytale atmosphere. Walk the white sands of Carmel Beach and enjoy a glass of local Monterey County wine at a dog-friendly bistro. It's the perfect, relaxed start to your coastal adventure.
 
 ## Big Sur: The Crown Jewel
 
-Driving through Big Sur is the highlight of any West Coast road trip. As you navigate the winding roads, you’ll be treated to views of the Santa Lucia Mountains plunging directly into the Pacific Ocean. Make sure to stop at Bixby Creek Bridge for that quintessential photo op. In June, the weather is mild, making it an ideal time to hike the trails at Julia Pfeiffer Burns State Park, where you can see the famous McWay Falls cascading onto the beach below. Remember to fuel up in Monterey or Carmel, as gas stations are few and far between in this stretch.
+Driving through Big Sur is the highlight of any West Coast road trip. As you navigate the winding roads, you'll be treated to views of the Santa Lucia Mountains plunging directly into the Pacific Ocean. Make sure to stop at Bixby Creek Bridge for that quintessential photo op. In June, the weather is mild, making it an ideal time to hike the trails at Julia Pfeiffer Burns State Park, where you can see the famous McWay Falls cascading onto the beach below. Remember to fuel up in Monterey or Carmel, as gas stations are few and far between in this stretch.
 
 ## San Simeon & The Hearst Castle
 
-Continuing south, you’ll arrive in San Simeon. This is a mandatory stop for any history buff or wildlife enthusiast. Visit the Elephant Seal Rookery at Piedras Blancas, where you can watch hundreds of elephant seals lounging on the beach. Afterward, book a tour of Hearst Castle. The gardens are particularly vibrant in June, providing a lush backdrop to the opulent architecture that defined a bygone era of California luxury.
+Continuing south, you'll arrive in San Simeon. This is a mandatory stop for any history buff or wildlife enthusiast. Visit the Elephant Seal Rookery at Piedras Blancas, where you can watch hundreds of elephant seals lounging on the beach. Afterward, book a tour of Hearst Castle. The gardens are particularly vibrant in June, providing a lush backdrop to the opulent architecture that defined a bygone era of California luxury.
 
 ## Santa Barbara: The American Riviera
 
