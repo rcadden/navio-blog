@@ -26,6 +26,16 @@ const canonicalURL = (Astro.props.canonicalURL ?? Astro.url.href).replace(/\/$/,
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PBDQDPGJ');
+    </script>
+    <!-- End Google Tag Manager -->
     <title>{title} | Navio</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
@@ -49,6 +59,10 @@ const canonicalURL = (Astro.props.canonicalURL ?? Astro.url.href).replace(/\/$/,
     <slot name="head" />
   </head>
   <body class="bg-white text-gray-900 antialiased min-h-screen flex flex-col">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBDQDPGJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <header class="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-gray-100 px-4 sm:px-6 py-3">
       <div class="max-w-4xl mx-auto flex items-center justify-between h-10">
@@ -67,6 +81,8 @@ const canonicalURL = (Astro.props.canonicalURL ?? Astro.url.href).replace(/\/$/,
           <a
             href="https://mynavio.com/planner"
             class="text-sm font-semibold text-white bg-primary px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+            data-track="blog_planner_click"
+            data-position="header"
           >Plan a Route</a>
         </nav>
       </div>
@@ -85,10 +101,28 @@ const canonicalURL = (Astro.props.canonicalURL ?? Astro.url.href).replace(/\/$/,
         <div class="flex gap-5">
           <a href="https://mynavio.com/privacy" class="hover:text-gray-700 transition-colors">Privacy</a>
           <a href="https://mynavio.com/terms" class="hover:text-gray-700 transition-colors">Terms</a>
-          <a href="https://mynavio.com/pricing" class="hover:text-gray-700 transition-colors">Go Pro</a>
+          <a
+            href="https://mynavio.com/pricing"
+            class="hover:text-gray-700 transition-colors"
+            data-track="blog_pro_click"
+            data-position="footer"
+          >Go Pro</a>
         </div>
       </div>
     </footer>
+
+    <!-- Navio click-tracking: delegate data-track attribute clicks to dataLayer -->
+    <script is:inline>
+      document.addEventListener('click', function(e) {
+        var el = e.target && e.target.closest('[data-track]');
+        if (!el) return;
+        var payload = { event: el.dataset.track };
+        if (el.dataset.slug) payload.post_slug = el.dataset.slug;
+        if (el.dataset.position) payload.position = el.dataset.position;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(payload);
+      });
+    </script>
 
   </body>
 </html>
