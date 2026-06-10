@@ -1,7 +1,7 @@
 ---
 title: "Arizona's Loneliest Highway: Tucson to Monument Valley via the Coronado Trail"
 slug: "tucson-to-monument-valley-coronado-trail-road-trip"
-description: "Skip the crowded US-89 corridor and drive Arizona's most underrated desert route — from Tucson north through the Coronado Trail (US-191) and Apache country to the sandstone spires of Monument Valley. This 550-mile itinerary trades tourist congestion for real desert solitude, with stops that reward drivers who plan ahead."
+description: "Skip US-89 and drive the Coronado Trail (US-191) from Tucson to Monument Valley — 550 miles through Apache country, sandstone spires, and real desert solitude."
 publishDate: 2026-06-10
 heroImage: "https://mynavio.com/api/og/map?origin=Tucson%2C%20AZ&destination=Monument%20Valley%2C%20AZ%2FUT&stops=%5B%22Tucson%2C%20Arizona%22%2C%22Willcox%2C%20Arizona%22%2C%22Clifton%2C%20Arizona%22%2C%22Springerville%2C%20Arizona%22%2C%22Holbrook%2C%20Arizona%22%5D"
 origin: "Tucson, AZ"
