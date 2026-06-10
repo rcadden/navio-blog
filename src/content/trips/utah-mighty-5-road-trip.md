@@ -3,7 +3,7 @@ title: "The Ultimate Utah Mighty 5 Road Trip: June 2026 Guide"
 slug: "utah-mighty-5-road-trip"
 description: "Planning a June road trip? Explore the Utah Mighty 5 with this epic itinerary. Discover the best scenic stops, hiking tips, and desert travel advice for 2026."
 publishDate: 2026-06-08
-heroImage: "https://dev-navio.grcadden.workers.dev/api/og/map?origin=Salt%20Lake%20City%2C%20UT&destination=Zion%20National%20Park%2C%20UT&stops=%5B%22Moab%2C%20UT%22%2C%22Torrey%2C%20UT%22%2C%22Bryce%20Canyon%2C%20UT%22%5D&v=2"
+heroImage: "https://mynavio.com/api/og/map?origin=Salt%20Lake%20City%2C%20UT&destination=Zion%20National%20Park%2C%20UT&stops=%5B%22Moab%2C%20UT%22%2C%22Torrey%2C%20UT%22%2C%22Bryce%20Canyon%2C%20UT%22%5D&v=3"
 origin: "Salt Lake City, UT"
 destination: "Zion National Park, UT"
 estimatedDriveTime: "7 hours"

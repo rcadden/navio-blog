@@ -3,7 +3,7 @@ title: "The Ultimate Pacific Coast Highway Road Trip: June 2026"
 slug: "pacific-coast-highway-road-trip"
 description: "Experience the ultimate June road trip along the Pacific Coast Highway. Discover scenic stops, coastal views, and travel tips for your 2026 California drive."
 publishDate: 2026-06-09
-heroImage: "https://dev-navio.grcadden.workers.dev/api/og/map?origin=San%20Francisco%2C%20CA&destination=Los%20Angeles%2C%20CA&stops=%5B%22Monterey%2C%20CA%22%2C%22Big%20Sur%2C%20CA%22%2C%22San%20Simeon%2C%20CA%22%2C%22Santa%20Barbara%2C%20CA%22%5D&v=2"
+heroImage: "https://mynavio.com/api/og/map?origin=San%20Francisco%2C%20CA&destination=Los%20Angeles%2C%20CA&stops=%5B%22Monterey%2C%20CA%22%2C%22Big%20Sur%2C%20CA%22%2C%22San%20Simeon%2C%20CA%22%2C%22Santa%20Barbara%2C%20CA%22%5D&v=3"
 origin: "San Francisco, CA"
 destination: "Los Angeles, CA"
 estimatedDriveTime: "9 hours"

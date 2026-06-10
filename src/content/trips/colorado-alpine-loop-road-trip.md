@@ -3,7 +3,7 @@ title: "The Ultimate Colorado Alpine Loop: A Summer Mountain Adventure"
 slug: "colorado-alpine-loop-road-trip"
 description: "Escape the summer heat on the ultimate Colorado mountain road trip. Discover high-altitude passes, historic mining towns, and epic vistas in summer 2026."
 publishDate: 2026-06-10
-heroImage: "https://dev-navio.grcadden.workers.dev/api/og/map?origin=Denver%2C%20CO&destination=Durango%2C%20CO&stops=%5B%22Breckenridge%2C%20CO%22%2C%22Aspen%2C%20CO%22%2C%22Ouray%2C%20CO%22%5D&v=2"
+heroImage: "https://mynavio.com/api/og/map?origin=Denver%2C%20CO&destination=Durango%2C%20CO&stops=%5B%22Breckenridge%2C%20CO%22%2C%22Aspen%2C%20CO%22%2C%22Ouray%2C%20CO%22%5D&v=3"
 origin: "Denver, CO"
 destination: "Durango, CO"
 estimatedDriveTime: "12 hours"
