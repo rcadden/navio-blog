@@ -5,11 +5,16 @@ import ArticleCard from '../components/ArticleCard.astro';
 
 const allPosts = await getCollection('trips', ({ data }) => !data.draft);
 const posts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+// Canonical for the index is https://mynavio.com/blog (no trailing slash)
+const canonicalURL = 'https://mynavio.com/blog';
 ---
 
 <BaseLayout
   title="Road Trip Guides"
   description="Curated US road trip guides with optimized routes, stop suggestions, and one-tap navigation via Navio."
+  ogType="website"
+  canonicalURL={canonicalURL}
 >
   <div class="bg-[radial-gradient(circle_at_top_center,rgba(38,92,75,0.07),transparent_60%)] border-b border-gray-100">
     <div class="max-w-4xl mx-auto px-6 py-14">
