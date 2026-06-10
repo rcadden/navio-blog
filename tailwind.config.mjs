@@ -9,7 +9,7 @@ export default {
         sunset: '#E6A75E',
       },
       fontFamily: {
-        display: ['Georgia', 'serif'],
+        display: ['Montserrat', 'sans-serif'],
       },
     },
   },
