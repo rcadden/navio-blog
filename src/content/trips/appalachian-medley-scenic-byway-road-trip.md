@@ -3,7 +3,7 @@ title: "Road Trip Guide: The Appalachian Medley Scenic Byway"
 slug: "appalachian-medley-scenic-byway-road-trip"
 description: "Discover the hidden gems of the Appalachian Medley Scenic Byway. A perfect summer road trip through the Blue Ridge Mountains. Plan your route today!"
 publishDate: 2026-06-10
-heroImage: "https://mynavio.com/api/og/map?origin=Asheville%2C%20NC&destination=Blue%20Ridge%2C%20GA&stops=%5B%22Asheville%2C%20NC%22%2C%22Pisgah%20Forest%2C%20NC%22%2C%22Highlands%2C%20NC%22%2C%22Blue%20Ridge%2C%20GA%22%5D"
+heroImage: "https://dev-navio.grcadden.workers.dev/api/og/map?origin=Asheville%2C%20NC&destination=Blue%20Ridge%2C%20GA&stops=%5B%22Asheville%2C%20NC%22%2C%22Pisgah%20Forest%2C%20NC%22%2C%22Highlands%2C%20NC%22%2C%22Blue%20Ridge%2C%20GA%22%5D&v=2"
 origin: "Asheville, NC"
 destination: "Blue Ridge, GA"
 estimatedDriveTime: "5 hours"

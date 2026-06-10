@@ -3,7 +3,7 @@ title: "The Ultimate June Road Trip: Salt Lake City to Glacier National Park"
 slug: "salt-lake-city-to-glacier-road-trip"
 description: "Planning a June 2026 road trip? Discover the ultimate route from Salt Lake City to Glacier National Park. Perfect for mountain lovers and outdoor adventure."
 publishDate: 2026-06-09
-heroImage: "https://mynavio.com/api/og/map?origin=Salt%20Lake%20City%2C%20UT&destination=Kalispell%2C%20MT&stops=%5B%22Salt%20Lake%20City%2C%20UT%22%2C%22Sun%20Valley%2C%20ID%22%2C%22Missoula%2C%20MT%22%2C%22Kalispell%2C%20MT%22%5D"
+heroImage: "https://dev-navio.grcadden.workers.dev/api/og/map?origin=Salt%20Lake%20City%2C%20UT&destination=Kalispell%2C%20MT&stops=%5B%22Salt%20Lake%20City%2C%20UT%22%2C%22Sun%20Valley%2C%20ID%22%2C%22Missoula%2C%20MT%22%2C%22Kalispell%2C%20MT%22%5D&v=2"
 origin: "Salt Lake City, UT"
 destination: "Kalispell, MT"
 estimatedDriveTime: "10 hours"
