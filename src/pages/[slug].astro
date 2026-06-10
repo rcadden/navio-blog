@@ -26,14 +26,81 @@ const utm = 'utm_source=navio-blog&utm_medium=content';
 const plannerUrl = routeId
   ? `https://mynavio.com/share/${routeId}?${utm}`
   : `https://mynavio.com/planner?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&${utm}`;
+
+// Canonical URL: site + base + slug, no trailing slash
+const canonicalURL = `https://mynavio.com/blog/${post.slug}`;
+
+// JSON-LD structured data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": canonicalURL,
+      "headline": title,
+      "description": description,
+      ...(heroImage ? { "image": heroImage } : {}),
+      "datePublished": publishDate.toISOString(),
+      "dateModified": publishDate.toISOString(),
+      "author": {
+        "@type": "Organization",
+        "name": "Navio",
+        "url": "https://mynavio.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Navio",
+        "url": "https://mynavio.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mynavio.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": canonicalURL
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://mynavio.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Road Trips",
+          "item": "https://mynavio.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": title,
+          "item": canonicalURL
+        }
+      ]
+    }
+  ]
+};
 ---
 
-<BaseLayout title={title} description={description} image={heroImage}>
+<BaseLayout
+  title={title}
+  description={description}
+  image={heroImage}
+  ogType="article"
+  publishDate={publishDate}
+  canonicalURL={canonicalURL}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
 
   <div class="bg-[radial-gradient(circle_at_top_center,rgba(38,92,75,0.07),transparent_60%),radial-gradient(circle_at_bottom_right,rgba(230,167,94,0.06),transparent_50%)] border-b border-gray-100">
     <div class="max-w-3xl mx-auto px-6 py-14">
       <div class="flex items-center gap-2 text-sm text-gray-400 mb-5">
-        <a href="/blog/" class="hover:text-primary transition-colors">Road Trips</a>
+        <a href="/blog" class="hover:text-primary transition-colors">Road Trips</a>
         <span>›</span>
         <span class="text-gray-500">{origin} → {destination}</span>
       </div>
@@ -74,7 +141,14 @@ const plannerUrl = routeId
 
   <article class="max-w-3xl mx-auto px-6 py-12">
     {heroImage && (
-      <img src={heroImage} alt={title} class="w-full aspect-[16/9] object-cover rounded-xl mb-10 shadow-sm" />
+      <img
+        src={heroImage}
+        alt={title}
+        class="w-full aspect-[16/9] object-cover rounded-xl mb-10 shadow-sm"
+        width="1280"
+        height="640"
+        fetchpriority="high"
+      />
     )}
     <div class="flex flex-wrap items-center gap-3 mb-10 pb-8 border-b border-gray-100">
       <time datetime={publishDate.toISOString()} class="text-sm text-gray-400">{formattedDate}</time>
@@ -111,7 +185,7 @@ const plannerUrl = routeId
           {routeId ? 'Open Route in Navio' : 'Plan This Route in Navio'} →
         </a>
         <a
-          href="/blog/"
+          href="/blog"
           class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 bg-white border border-gray-200 px-6 py-3 rounded-xl hover:border-gray-300 transition-colors"
         >
           More Road Trips
