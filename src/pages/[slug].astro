@@ -27,6 +27,14 @@ const plannerUrl = routeId
   ? `https://mynavio.com/share/${routeId}?${utm}`
   : `https://mynavio.com/planner?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&${utm}`;
 
+// Play Store link. The `referrer` param is what Play Console's acquisition
+// reports read, so blog-driven installs are attributable per post — it is a
+// single URL-encoded string, not ordinary query params.
+const playReferrer = encodeURIComponent(
+  `utm_source=navio-blog&utm_medium=content&utm_campaign=${post.slug}`
+);
+const playStoreUrl = `https://play.google.com/store/apps/details?id=com.mynavio.app&referrer=${playReferrer}`;
+
 // Canonical URL: site + base + slug, no trailing slash
 const canonicalURL = `https://mynavio.com/blog/${post.slug}`;
 
@@ -261,6 +269,41 @@ const faqJsonLdString = faqPairs.length >= 2
           More Road Trips
         </a>
       </div>
+
+      {/*
+        Android-only Play Store CTA. Hidden by default and revealed by the
+        script below — Navio ships on Google Play only, so showing this to
+        iOS or desktop readers is a dead end. Kept visually secondary to the
+        planner CTA above: that link carries the route's origin and
+        destination, so it delivers value immediately, while this one asks
+        for an install first.
+      */}
+      <div id="play-store-cta" hidden class="mt-6 pt-6 border-t border-primary/10">
+        <p class="text-sm text-gray-500 mb-3">On Android? Take Navio with you.</p>
+        <a
+          href={playStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2.5 text-sm font-semibold text-primary bg-white border border-primary/30 px-6 py-3 rounded-xl hover:border-primary hover:bg-primary/5 transition-colors"
+          data-track="blog_play_store_click"
+          data-position="footer_cta"
+          data-slug={post.slug}
+        >
+          <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.09 12l2.608-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+          </svg>
+          Get Navio free on Google Play
+        </a>
+      </div>
     </div>
   </article>
+
+  <script is:inline>
+    // Reveal the Play Store CTA only on Android. Static build, so this has to
+    // happen client-side; the element ships hidden so no other platform sees it.
+    if (/Android/.test(navigator.userAgent)) {
+      var playCta = document.getElementById('play-store-cta');
+      if (playCta) playCta.hidden = false;
+    }
+  </script>
 </BaseLayout>
